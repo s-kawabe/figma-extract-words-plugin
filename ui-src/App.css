@@ -60,11 +60,39 @@ body {
   color: #999;
 }
 
+.btn-ok {
+  flex: 1;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #18a0fb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-ok:hover {
+  background: #0d8ce0;
+}
+
 .count {
   padding: 8px 16px;
   font-size: 11px;
   color: #888;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.toggle-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.toggle-all input[type="checkbox"] {
+  cursor: pointer;
 }
 
 .list {
@@ -82,6 +110,49 @@ body {
 
 .list-item:hover {
   background: #f7f7f7;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-top: 3px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.copied-feedback {
+  font-size: 11px;
+  font-weight: 500;
+  color: #1bc47d;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .empty {

@@ -22,20 +22,30 @@ function walkTextNodes(node: BaseNode): string[] {
   return texts;
 }
 
-function extractTextsFromCurrentPage(): string[] {
+function extractTexts(): string[] {
+  const selection = figma.currentPage.selection;
+
+  if (selection.length > 0) {
+    const texts: string[] = [];
+    for (const node of selection) {
+      texts.push(...walkTextNodes(node));
+    }
+    return texts;
+  }
+
   return walkTextNodes(figma.currentPage);
 }
 
 figma.ui.postMessage({
   type: "text-list",
-  texts: extractTextsFromCurrentPage(),
+  texts: extractTexts(),
 });
 
 figma.ui.onmessage = (msg: { type: string }) => {
   if (msg.type === "refresh") {
     figma.ui.postMessage({
       type: "text-list",
-      texts: extractTextsFromCurrentPage(),
+      texts: extractTexts(),
     });
   }
 
