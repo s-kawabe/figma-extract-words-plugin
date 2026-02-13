@@ -1,0 +1,30 @@
+{
+  "name": "figma-extract-words-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "tsc": "npm run tsc:main && npm run tsc:ui",
+    "tsc:main": "tsc -p plugin-src/tsconfig.json --noEmit",
+    "tsc:ui": "tsc -p ui-src/tsconfig.json --noEmit",
+    "build": "npm run build:ui && npm run build:main -- --minify",
+    "build:main": "esbuild plugin-src/code.ts --bundle --outfile=dist/code.js --target=es6",
+    "build:ui": "vite build --minify esbuild --emptyOutDir=false",
+    "build:watch": "concurrently \"npm run build:main -- --watch\" \"vite build --watch --minify esbuild --emptyOutDir=false\"",
+    "dev": "npm run build:watch"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.104.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vite-plugin-singlefile": "^2.0.3"
+  }
+}

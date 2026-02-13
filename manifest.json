@@ -1,0 +1,9 @@
+{
+  "name": "Extract Words Plugin",
+  "id": "figma-extract-words-plugin",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/index.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page"
+}
